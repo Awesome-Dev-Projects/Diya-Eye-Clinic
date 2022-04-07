@@ -1,6 +1,8 @@
 from django.urls import path
 from .views import index, get_otp, verify_otp, save_patient_profile
 
+app_name='patient'
+
 urlpatterns = [
     path('', index, name='index'),
     path('get-otp/', get_otp, name='get-otp'),

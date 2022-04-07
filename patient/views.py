@@ -5,8 +5,9 @@ from .repositories.patient_profile import PatientProfileRepository
 
 from .repositories.patient import PatientRepository
 
-from .services.fast2sms import Fast2SMS
 from .models import OTP
+
+from .services.fast2sms import Fast2SMS
 from .services.py_otp import TOTP
 
 # Create your views here.
