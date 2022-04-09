@@ -1,6 +1,8 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 
+from .forms import ChooseDateForm
+
 from .repositories.patient_profile import PatientProfileRepository
 
 from .repositories.patient import PatientRepository
@@ -80,3 +82,16 @@ def save_patient_profile(request):
         PatientProfileRepository().update_by_patient(patient, data)
         return HttpResponse("Go to next page")
     return render(request, 'patient/patient_profile.html')
+
+
+def check_slot_availability(request):
+    choose_date_form=ChooseDateForm()
+    if request.method == "POST":
+        
+        choose_date_form = ChooseDateForm(request.POST or None)
+        return HttpResponse("Go to next page")
+    
+    template_context={
+        "choose_date_form":choose_date_form
+    }
+    return render(request, 'patient/check_slot_availability.html',context=template_context)
